@@ -7,7 +7,7 @@
 }
 .registerpage{
     background-color:#4B5320; 
-   height: 100vh;
+   height: 130vh;
    display: flex;
    justify-content: center;
    padding-top: 50px;
@@ -55,6 +55,11 @@
     color: white;
 }
 
+.loginbtn:hover{
+    background-color: #7c873d;
+    border: #4B5320;
+}
+
 .text-form{
     font-size: 16px;
     font-weight: 500;
@@ -63,4 +68,9 @@
 .textarea{
     border:1px solid;
     border-color: #dee2e6;
+    width: 100%;
+    box-sizing: border-box;
+   
 }
+
+
