@@ -6,8 +6,10 @@
     <title>Donor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="donor.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabaseinit.js"></script>
+    <script type="module" src="addData.js"></script>
     <script src="request.js"></script>
-    
 </head>
 <body>
     
@@ -63,8 +65,8 @@
             <div class="line"></div>
           </div>
           <!-- Donate Form -->
-          <div id="donate-form">
-            <form>
+          <div >
+            <form id="donateform">
               <div class="form-group">
                 <label for="food_type">Choose one:</label>
                 <select class="form-control" name="" id="food_type">
@@ -92,7 +94,7 @@
                 <input type="date" name="Date" class="form-control" id="foodTime">
               </div>
 
-              <button type="button" class="btn btn-primary" onclick='sendreq();'>Submit</button>
+              <button id="formbtn" type="button" class="btn btn-primary"'>Submit</button>
             </form>
           </div>
       </div></div>
@@ -110,29 +112,5 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
-
-  <script src="request.js"></script> 
 </body>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-    const { createClient } = supabase
-    supabase = createClient('https://jdpmvcqvpoettcqrwwcp.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpkcG12Y3F2cG9ldHRjcXJ3d2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA0MDM1NzEsImV4cCI6MjAxNTk3OTU3MX0.DEVGEK7cU38SsU9fgbP85ERlSLJuPO7gdt_8zcWzsxM')
-
-    const form = document.querySelector('#donate-form') //selected the form
-    form.addEventListener('submit', async(event) => { 
-        event.preventDefault() 
-        
-        const formips = form.querySelectorAll('input, textarea, select')
-        
-            let datas = {}
-            formips.forEach(element => {
-                const {value, name} = element //selected object has properties value and name
-                if (value) {
-                    datas[name] = value
-                }
-            })
-            const { error, data}=await supabase.from('Requests').insert([datas])
-            console.log(error, data)     
-    })
-</script>
 </html>

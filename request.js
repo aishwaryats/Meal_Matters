@@ -1,3 +1,4 @@
+console.log("from request.js beginning")
 var reqlist=[{
   Name:'Zaroob Restaurant',
   City:'Kochi',
@@ -7,8 +8,8 @@ var reqlist=[{
   Name:'Arabian Palace',
   City:'Kochi',
   Quantity:'6kg'
-
 }]
+
 console.log(reqlist);
 
 function renderlist(){
@@ -16,7 +17,7 @@ function renderlist(){
   const storedReqlist = localStorage.getItem('reqlist');
 
 // Check if reqlist exists in local storage
-if (storedReqlist) {
+  if (storedReqlist) {
   // Parse the stored JSON string back into an array
   reqlist = JSON.parse(storedReqlist);
 }
@@ -62,29 +63,27 @@ function removeItem(index) {
   reqlist.splice(index, 1);
   localStorage.setItem('reqlist', JSON.stringify(reqlist));
 }
-     function sendreq(){
-        const nameinputElement=document.querySelector('.js-name');
-        const inpname=nameinputElement.textContent;
 
+export function sendreq(){
+  const nameinputElement=document.querySelector('.js-name');
+  const inpname=nameinputElement.textContent;
 
-        const cityinputElement=document.querySelector('.js-city');
-        const inpcity=cityinputElement.textContent;
+  const cityinputElement=document.querySelector('.js-city');
+  const inpcity=cityinputElement.textContent;
 
-        const qtyinputElement=document.querySelector('.js-input2');
-        const inpqty=qtyinputElement.value;
+  const qtyinputElement=document.querySelector('.js-input2');
+  const inpqty=qtyinputElement.value;
 
-        reqlist.push({
-          Name:inpname,
-          City:inpcity,
-          Quantity:inpqty
-          
-        });
-        localStorage.setItem('reqlist', JSON.stringify(reqlist));
-        console.log(reqlist);
-
-        qtyinputElement.value='';
-        renderlist();
-     }
-     
-
+  reqlist.push({
+    Name:inpname,
+    City:inpcity,
+    Quantity:inpqty  
+  });
   
+  localStorage.setItem('reqlist', JSON.stringify(reqlist));
+  console.log(reqlist);
+  qtyinputElement.value='';
+  renderlist();
+}
+
+

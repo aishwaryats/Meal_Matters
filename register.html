@@ -276,7 +276,7 @@
           alert(error)
         } else {
             console.log("no error till signup")
-        }
+        
     
         const formInputs = form.querySelectorAll('input, textarea, select');
     
@@ -302,8 +302,6 @@
             } else {
                 console.log("Data inserted into 'Donor' table:", data);
             }
-    
-            window.location.href = 'donor.html';
         }
         if ( selectedoption == 'option2')
         {
@@ -313,8 +311,6 @@
             } else {
                 console.log("Data inserted into 'Volunteer' table:", data);
             }
-    
-            window.location.href = 'volunteer.html';
         } 
         if (selectedoption == 'option3')
         {
@@ -324,8 +320,9 @@
             } else {
                 console.log("Data inserted into 'Charity' table:", data);
             } 
-            window.location.href = 'charity.html';
         }
+        window.location.href = 'login.html';
+      }
         });
   </script>
   
