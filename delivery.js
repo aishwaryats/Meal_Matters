@@ -39,7 +39,7 @@ function renderlist2(){
         <div class="row">
             <div class="col-4">
                 <p>Quantity : ${Quantity2}</p>
-                <p>Type : Non Veg</p>
+                <p>Type : Veg</p>
             </div>
             <div class="col-4">
                 <p>${City2}</p>
@@ -51,7 +51,7 @@ function renderlist2(){
     </div>
     <div class="delivery-requestbtn button-allign">
         <div class="btn-group status-buttons" role="group" aria-label="Basic example" >
-            <button type="button" class="btn btn-primary status-buttons">Accept</button>
+            <button type="button" class="btn btn-primary status-buttons" onclick="delalert(this);">Accept</button>
             <button type="button" class="btn btn-primary status-buttons" onclick="removeItem2(${i}); renderlist2();
                     ">Decline</button>
           </div>
@@ -97,4 +97,10 @@ function senddelreq(){
 
     qtyinpElement.value='';
     renderlist2();
+ }
+
+ function delalert(button){
+    alert("Delivery request accepted");
+    button.disabled=true;
+
  }
