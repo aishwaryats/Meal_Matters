@@ -3,7 +3,6 @@ var dellist=[{
     To2:'Thanal Oldage Home',
     City2:'Kochi',
     Quantity2:'12kg'
-    
 },{
     Name2:'Thallumala',
     To2:'Navodya Welfare Home',
@@ -32,8 +31,8 @@ function renderlist2(){
         const To2=delObj.To2;
         const City2=delObj.City2;
         const Quantity2=delObj.Quantity2;
-    
-        
+
+
         const html2=` <div class="delivery-requestdetails">
         <p>From : ${Name2}</p>
         <p>To : ${To2}</p>
@@ -77,7 +76,6 @@ function removeItem2(index) {
 function senddelreq(){
     const nameinpElement=document.querySelector('.js-donor2');
     const inputname=nameinpElement.textContent;
-    
     const toinpElement=document.querySelector('.js-charity');
     const inputname2=toinpElement.textContent;
 
@@ -93,7 +91,6 @@ function senddelreq(){
       To2:inputname2,
       City2:inputcity,
       Quantity2:inputqty
-      
     });
     localStorage.setItem('dellist', JSON.stringify(dellist));
     console.log(dellist);
